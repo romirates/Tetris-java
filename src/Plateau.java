@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 /**
- * Classe permetant de représenter la zone de jeu, les différentes paramètres de celle-ci :
+ * Classe permetant de représenter la zone de jeu, 
+ * les différentes paramètres de celle-ci :
  * état de la partie, vitesse de jeu, score, etc. ainsi que son affichage
  * 
  *
@@ -44,15 +45,15 @@ public class Plateau extends JPanel implements ActionListener {
 	//instance de tetris permet de modifier l'affichage de score a la vole
 	
 	/**
-	 * Constructeur qui crée la zone de jeu, la fabrique et le timer associer 
+	 * Constructeur qui crée la zone de jeu, la fabrique et le timer associé
 	 * 
-	 * rend la fenetre focusable pour capter les appuis et touche 
-	 * et ajoute un des ecouteurs d'event par le bias de la classe imbriqué TAdapter
+	 * rend la fenetre "focusable" pour capter les appuis de touches 
+	 * Ajoute un ecouteur d'event par le bias de la classe imbriqué TAdapter
 	 * 
 	 */
 	public Plateau(Tetris instance){
 		this.tetris = instance;
-		this.zoneJeu =(ArrayList<Cellule>[]) new ArrayList[ZoneHauteur]; 
+		this.zoneJeu = (ArrayList<Cellule>[]) new ArrayList[ZoneHauteur]; 
 		for(int i=0; i<this.zoneJeu.length; i++){
 			this.zoneJeu[i] = new ArrayList<Cellule>();
 		}
@@ -125,7 +126,8 @@ public class Plateau extends JPanel implements ActionListener {
 		return valide;
 	}
 	/**
-	 * Methode qui déplace aléatoirement une piece (gauche, droite, bas) si c'est possible
+	 * Methode qui déplace aléatoirement une piece (gauche, droite, bas) 
+	 * si c'est possible
 	 * 
 	 * @param p piece 
 	 * @return Piece une piece en fonction de la piece p 
@@ -156,7 +158,8 @@ public class Plateau extends JPanel implements ActionListener {
     	this.nouvellePiece();
     }
     /**
-     * Methode d'arrêt du jeu, qui affiche un game over et le score final 
+     * Methode d'arrêt du jeu 
+     * affiche un game over et le score final 
      */
     public void stop(){
     	this.stop = true;
@@ -184,7 +187,7 @@ public class Plateau extends JPanel implements ActionListener {
     }
 	/**
 	 * Methode qui retourne la valeur de ligneComplete
-	 * @return ligneComplete un entier qui représente le nombre de lignes complete
+	 * @return ligneComplete : un entier qui représente le nombre de lignes complete
 	 */
 	public int score(){
 		return this.ligneComplete;
@@ -208,7 +211,7 @@ public class Plateau extends JPanel implements ActionListener {
 	}
 	/**
 	 * Méthode qui reactualise la fênetre d'affichage par rapport à la zone de jeu
-	 * c'est cette méthode qui est appele par la methode repaint()
+	 * c'est cette méthode qui est appelé par la methode repaint()
 	 */
 	@Override
     protected void paintComponent(Graphics g) {
@@ -253,7 +256,8 @@ public class Plateau extends JPanel implements ActionListener {
 
 
 	/**
-	 * Methode qui suprimme toutes les lignes pleine (contenant "ZoneLargeur" de cellules) 
+	 * Methode qui suprimme toutes les lignes pleine 
+	 * (contenant "ZoneLargeur" de cellules) 
 	 */
 	
 	public void supprimeLignes(){
@@ -269,7 +273,6 @@ public class Plateau extends JPanel implements ActionListener {
 	/**
 	 * Methode qui permet de ramener toutes les lignes du plateau de jeu tout en bas de celui-ci
 	 * tout en vérifiant à ne pas écrasser de lignes
-	 * 
 	 * 
 	 */
 	public void compactageLignes(){
@@ -301,11 +304,11 @@ public class Plateau extends JPanel implements ActionListener {
 	 * les différents mouvement qui s'éxecute si possible sont :
 	 * -flêche droite : déplacement de la pièce à droite 
 	 * -flêche gauche : déplacement de la pièce à gauche
-	 * -flêche haut : rotation (anti-trigo) seulement si la pièce n'est pas un carré
+	 * -flêche haut : rotation seulement si la pièce n'est pas un carré
 	 * -flêche bas : descente d'une ligne vers le bas
 	 * 
 	 * après chaque action, la fonction repaint est appellé pour la mise à jour de l'affichage
-	 * @author Romain Ferrand, Thaddeus Léonard 
+	 * @author Romain Ferrand
 	 *
 	 */
 	class TAdapter extends KeyAdapter {

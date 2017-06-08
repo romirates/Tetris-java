@@ -1,8 +1,13 @@
 
 import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+/**
+ * Classe Tetris
+ * crée la fenêtre et lance le jeu
+ * @author romain
+ *
+ */
 public class Tetris extends JFrame {
 	public static final int Largeur = 400;
 	public static final int Hauteur = 760;

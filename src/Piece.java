@@ -2,26 +2,37 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * 
+ * Classe définissant une pièce de tetris
  * @author romain
  *
  */
 public class Piece {
 	/**
-	 * NbPiece Constante static qui défini le nombre normale de cellule dans une piece
-	 * Cellules tableau de cellules 
+	 * NbPiece : Constante static à visibilité privé
+	 * définie le nombre de cellules dans une piece
 	 */
 	private final static int NbCellules = 4;
+	/**
+	 * Cellules : tableau de cellules à visibilité privé
+	 * stocke les cellules de la pièce
+	 */
 	private ArrayList<Cellule> cellules;
+	/**
+	 * Constructeur de Piece 
+	 */
 	public Piece(){
 		this.cellules = new ArrayList<Cellule>(NbCellules);
 	}
+	/**
+	 * Méthode ajoutant une cellule à la pièce
+	 * @param cell une cellule
+	 */
 	public void ajouterCell(Cellule cell){
 		this.cellules.add(cell);
 	}
 	/**
 	 * Methode qui effectue un déplacement d'une case vers le bas de la piece
-	 * @return la piece déplacé
+	 * @return pièce déplacé
 	 */
 	public Piece versLeBas(){
 		Piece p = new Piece();
@@ -31,12 +42,16 @@ public class Piece {
 		}
 		return p;
 	}
+	/**
+	 * Getter de la pièce 
+	 * @return pièce
+	 */
 	public ArrayList<Cellule> getCellules(){
 		return this.cellules;
 	}
 	/**
-	 * Methode qui effectue un déplacement d'une case vers la droite de la piece
-	 * @return la piece déplacé 
+	 * Methode qui clone la pièce avec un déplacement d'une case vers la droite
+	 * @return pièce cloné à droite
 	 */
 	public Piece versLaDroite(){
 		Piece p = new Piece();
@@ -47,8 +62,9 @@ public class Piece {
 		return p;
 	}
 	/**
-	 * Methode qui effectue un déplacement d'une case vers la gauche de la piece
-	 * @return retourne la piece déplacé
+	 * Methode qui clone la pièce avec un déplacement d'une case vers la gauche
+	 * @return pièce cloné à gauche
+	 *
 	 */
 	public Piece versLaGauche(){
 		Piece p = new Piece();
@@ -61,7 +77,7 @@ public class Piece {
 	}
 	/**
 	 * Methode qui choisi un déplacement aléatoirement entre la droite, gauche et bas
-	 * @return la piece après le choix aléatoire
+	 * @return pièce après le choix aléatoire
 	 */
 	public Piece choixAlea(){
 		Random rd = new Random();
@@ -76,10 +92,10 @@ public class Piece {
 	}
 	
 	/**
-	 * Methode qui effectue grave à la matrice de rotation [0,-1,1,0],
-	 * une rotation d'un angle pi/2 à partir de la cellule indicé à 0 de pièce dans l'arrayList 
+	 * Methode qui effectue grâce à la matrice de rotation [0,-1,1,0],
+	 * une rotation d'un angle pi/2 depuis la cellule indicé à 0 de pièce dans l'arrayList 
 	 * qui représente le centre de rotation
-	 * @return la piece après la rotation
+	 * @return piece après la rotation
 	 */
 	public Piece rotation(){
 			int cx, cy;
